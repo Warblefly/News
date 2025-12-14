@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<h1>Newswires: <a href="https://news.johnwarburton.net/?source=PA%20Media">PA</a>, Reuters, AP, AFP</h1>
+<h1><a href="https://news.johnwarburton.net/">Newswires</a>: <a href="https://news.johnwarburton.net/?source=PA%20Media">PA</a>, Reuters, AP, AFP</h1>
 <?php
 $servername = "localhost";
 $username = "[USERNAME]";
