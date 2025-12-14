@@ -1,0 +1,60 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 20px;
+    line-height: 1.4; /* Reduced line-height */
+}
+
+/* Styles for desktop */
+@media (min-width: 768px) {
+    body {
+        max-width: 800px; /* Set a maximum width for the text container */
+        margin-left: auto; /* Center the container */
+        margin-right: auto; /* Center the container */
+    }
+}
+
+/* Styles for mobile */
+@media (max-width: 767px) {
+    body {
+        margin: 10px; /* Add a small margin for mobile devices */
+    }
+}
+
+h1, .headline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    line-height: 1.2;
+    margin-bottom: 3px; /* Reduced margin-bottom */
+}
+
+.description, .source {
+    font-family: 'Roboto', sans-serif;
+/*    text-align: justify; */
+    margin-bottom: 3px; /* Reduced margin-bottom */
+}
+
+.plaintext {
+    font-family: 'Merriweather', serif;
+/*    text-align: justify; */
+    margin-bottom: 9px; /* Reduced margin-bottom */
+}
+
+.pubDate {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 2px; /* Reduced margin-bottom */
+}
+
+.story {
+    margin-bottom: 5px; /* Reduced margin-bottom */
+    padding-bottom: 3px; /* Reduced padding-bottom */
+    border-bottom: 1px solid #ccc;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
