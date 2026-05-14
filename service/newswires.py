@@ -30,6 +30,9 @@ ALLOWED_CHARACTERS = re.compile(r'[ -~]|[\u00A0-\u00FF]|[\u2600-\u26FF]|[\u2700-
 # URL of the RSS feed
 url = "https://www.dailymail.co.uk/wires/index.rss"
 
+# Headers for article retrieval. Some newspapers won't respond to automated queries
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+
 # System prompt for headline classifier
 SYSTEM_PROMPT = "You are a helpful AI chatbot who is using their knowledge of how news and sport stories are written to classify headlines as either 'Sport' or 'Other'. In response to receiving a headline, you can reply with only one word chosen from two, which describes what the headline is about. The two words you can choose from are 'Sport' or 'Other'. Make sure stories about baseball, tennis, football, soccer, motor racing and other sports are all described as 'Sport'. Now, here is the headline you need to classify: "
 
@@ -77,7 +80,7 @@ def convert_rss_datetime(rss_datetime):
 # Function to extract plaintext from the article link
 def extract_plaintext(link):
     try:
-        response = requests.get(link)
+        response = requests.get(link, headers=headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'html.parser')
         paragraphs = soup.find_all('p', class_='mol-para-with-font')
@@ -95,7 +98,7 @@ def extract_article_id(link):
 # Function to extract the full title from the article link
 def extract_full_title(link):
     try:
-        response = requests.get(link)
+        response = requests.get(link, headers=headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'html.parser')
         title_tag = soup.find('div', class_='heading-tag-switch').find('h1')
